@@ -11,8 +11,12 @@ function genRandomArray(length, max) {
 
 export default function Input() {
   const [input, setInput] = useState("");
-  const [number, setNumber] = useState(0);
-  const onPress = () => setNumber(input);
+  const [number, setNumber] = useState("");
+  const onPress = () => {
+    setNumber(input);
+    setInput("");
+  };
+
   const [arrayOfRandomNumbers, setRandom] = useState(genRandomArray(5, 1000));
   // let arrayOfRandomNumbers = [];
   // useEffect(() => {
@@ -37,7 +41,7 @@ export default function Input() {
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text> Guess </Text>
       </TouchableOpacity>
-      <ArrayItems number={number} arrayOfNumbers={arrayOfRandomNumbers} />
+      <ArrayItems guess={number} arrayOfNumbers={arrayOfRandomNumbers} />
     </>
   );
 }
@@ -45,7 +49,7 @@ export default function Input() {
 const styles = StyleSheet.create({
   textInput: {
     height: 40,
-    width: 250,
+    width: 210,
     borderColor: "gray",
     borderWidth: 1,
   },
@@ -53,5 +57,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#DDDDDD",
     padding: 10,
+    borderRadius: 5,
+    marginTop: 5,
   },
 });

@@ -14,7 +14,7 @@ export default function App() {
         <Text style={{ fontWeight: "bold", fontSize: 30 }}>
           Search algorithms
         </Text>
-        <Text style={{ fontWeight: "bold", fontSize: 15 }}>
+        <Text style={{ fontWeight: "bold", fontSize: 15, paddingBottom:5 }}>
           Start editing to see some magic happen!
         </Text>
         {/* <InputContext.provider value={input}> */}
