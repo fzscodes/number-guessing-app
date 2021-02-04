@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function ArrayItems() {
-  const randomArray = (length, max) =>
-    [...new Array(length)].map(() => Math.round(Math.random() * max));
-  const arrayOfRandomNumbers = randomArray(5, 1000);
-  console.log(arrayOfRandomNumbers);
+export default function ArrayItems(props) {
+  console.log("inside array items");
+  console.log(props);
+
   const numbersInArray = () => {
-    return arrayOfRandomNumbers.map((item, index) => {
-      return (
-        <View key={index} style={{ margin: 20 }}>
-          <Text>{`Value: ${item}`}</Text>
-        </View>
-      );
+    return props.arrayOfNumbers.map((item, index) => {
+      console.log(item);
+      if (props.number && item.toString()===props.number) {
+        return (
+          <View key={index} style={{ margin: 20 }}>
+            <Text>{`Value: ${item}`}</Text>
+          </View>
+        );
+      } else {
+        return (
+          <View key={index} style={{ margin: 20 }}>
+            <Text>{`Value: ?`}</Text>
+          </View>
+        );
+      }
     });
   };
 
-  return <View>{numbersInArray()}</View>;
+  return numbersInArray();
 }

@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Input from "./src/components/Input";
+import UserInput from "./src/components/UserInput";
 // import GuessButton from './src/components/GuessButton';
-import ArrayItems from "./src/components/ArrayItems";
+// import ArrayItems from "./src/components/ArrayItems";
 // import InputContext from './src/components/InputContext';
 
 export default function App() {
@@ -18,9 +18,9 @@ export default function App() {
           Start editing to see some magic happen!
         </Text>
         {/* <InputContext.provider value={input}> */}
-        <Input/>
+        <UserInput />
         {/* <GuessButton/> */}
-        <ArrayItems />
+        {/* <ArrayItems /> */}
         {/* </InputContext.provider> */}
         <StatusBar style="auto" />
       </View>

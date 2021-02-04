@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet,Text, TouchableOpacity } from 'react-native';
-import { InputContext } from './InputContext';
+// import { InputContext } from './InputContext';
 
 export default function GuessButton(setInput) {
 
