@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const correctGuessArray = [];
+
 export default function ArrayItems(props) {
+  const correctGuessArray = [];
   console.log(props);
 
   const numbersNotGuessed = () => {
@@ -14,25 +15,32 @@ export default function ArrayItems(props) {
         props.arrayOfNumbers.splice(index, 1);
       } else {
         return (
-          <View key={index} style={{ margin: 20 }}>
-            <Text>{`Value: ?`}</Text>
+          <View key={index} style={{ margin: 15 }}>
+            <Text
+              style={{ ...styles.arrayItems, backgroundColor: "#ffe4e1" }}
+            >{`Value: ?`}</Text>
           </View>
         );
       }
     });
   };
+
   const numbersGuessed = () => {
     if (correctGuessArray && correctGuessArray.length > 0) {
       return correctGuessArray.map((item, index) => {
+        props.arrayOfNumbers.splice(index, 1);
         return (
           <View key={index} style={{ margin: 20 }}>
-            <Text>{`Value: ${item}`}</Text>
+            <Text
+              style={{ ...styles.arrayItems, backgroundColor: "#adff2f" }}
+            >{`Value: ${item}`}</Text>
           </View>
-        );
+        );     
       });
     }
+    
   };
-
+  
   return (
     <>
       <View>{numbersNotGuessed()}</View>
@@ -49,5 +57,6 @@ const styles = StyleSheet.create({
     width: 350,
     borderColor: "black",
     borderWidth: 2,
+    backgroundColor: "#ffe4e1",
   },
 });

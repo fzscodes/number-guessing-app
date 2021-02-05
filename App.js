@@ -1,39 +1,37 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import UserInput from "./src/components/UserInput";
-// import GuessButton from './src/components/GuessButton';
-// import ArrayItems from "./src/components/ArrayItems";
-// import InputContext from './src/components/InputContext';
 
 export default function App() {
-  // const [input, setInput] = useState('')
   return (
     <>
-      <View style={styles.container}>
-        <Text style={{ fontWeight: "bold", fontSize: 30 }}>
-          Search algorithms
-        </Text>
-        <Text style={{ fontWeight: "bold", fontSize: 15, paddingBottom:5 }}>
+    <ScrollView>
+      <LinearGradient
+        colors={["#87cefa", "#b0e0e6", "#fffafa"]}
+        style={{
+          flex: 1,
+          backgroundColor: "#40e0d0",
+          marginTop: 50,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 17,
+            paddingBottom: 10,
+            color: "#ff69b4",
+          }}
+        >
           Start editing to see some magic happen!
         </Text>
-        {/* <InputContext.provider value={input}> */}
         <UserInput />
-        {/* <GuessButton/> */}
-        {/* <ArrayItems /> */}
-        {/* </InputContext.provider> */}
         <StatusBar style="auto" />
-      </View>
+      </LinearGradient>
+      </ScrollView>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    marginTop: 50,
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
-});
